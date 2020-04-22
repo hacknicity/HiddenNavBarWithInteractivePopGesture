@@ -1,24 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BQJ-j8-b7H">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RootViewController" customModule="HiddenNavBarWithInteractivePopGesture" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="aRQ-AV-yg0">
+                                <rect key="frame" x="107.5" y="429" width="199" height="92"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hc4-U1-0Pr">
+                                        <rect key="frame" x="0.0" y="0.0" width="199" height="30"/>
+                                        <state key="normal" title="Push First View Controller"/>
+                                        <connections>
+                                            <segue destination="sOa-Zq-qu4" kind="show" id="op7-J5-OMG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PgK-O2-FLY">
+                                        <rect key="frame" x="0.0" y="62" width="199" height="30"/>
+                                        <state key="normal" title="Push Second View Controller"/>
+                                        <connections>
+                                            <segue destination="pDX-hS-70R" kind="show" id="hpd-fV-5Gc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="aRQ-AV-yg0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0Xi-wb-h6f"/>
+                            <constraint firstItem="aRQ-AV-yg0" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="MUn-1S-BAF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="E1K-WD-4nS">
+                        <barButtonItem key="leftBarButtonItem" image="gear" catalog="system" id="oyy-nv-iNs"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="138.61607142857142"/>
+        </scene>
+        <!--First View Controller-->
+        <scene sceneID="9j5-HI-7c4">
+            <objects>
+                <viewController id="sOa-Zq-qu4" customClass="FirstViewController" customModule="HiddenNavBarWithInteractivePopGesture" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ax9-PY-Nja">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJa-HM-SUX" userLabel="Custom Navigation Bar">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="Nbj-Zy-hmt">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="xmark.circle" catalog="system" id="bVD-4x-0k8">
+                                            <connections>
+                                                <action selector="closeButtonTapped:" destination="sOa-Zq-qu4" id="QlD-b5-8ap"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="circle.lefthalf.fill" catalog="system" id="bnF-ZD-Gmq"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qvs-2t-Pnk">
+                                <rect key="frame" x="20" y="404" width="374" height="142.5"/>
+                                <string key="text">This view controller effectively hides the navigation controller's navigation bar using a transparent appearance.
+
+The bar buttons you can see are in a custom UINavigationBar which is part of this view controller's view.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Qvs-2t-Pnk" firstAttribute="centerY" secondItem="nYk-8P-QH7" secondAttribute="centerY" id="6x0-GY-qdD"/>
+                            <constraint firstItem="Qvs-2t-Pnk" firstAttribute="leading" secondItem="Ax9-PY-Nja" secondAttribute="leadingMargin" id="8Jb-6t-VHl"/>
+                            <constraint firstItem="Qvs-2t-Pnk" firstAttribute="trailing" secondItem="Ax9-PY-Nja" secondAttribute="trailingMargin" id="DkD-FL-SIy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nYk-8P-QH7"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cbd-PM-cPt"/>
+                    <connections>
+                        <outlet property="customNavigationBar" destination="rJa-HM-SUX" id="XLq-dA-ZEg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D3T-Io-4fr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2033" y="-95"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lR2-hc-zQI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BQJ-j8-b7H" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IvU-eJ-UF5" customClass="PassthroughNavigationBar" customModule="HiddenNavBarWithInteractivePopGesture" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ujD-f4-DTR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VLz-Qb-oPe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="byJ-e1-7fa">
+            <objects>
+                <viewController id="pDX-hS-70R" customClass="SecondViewController" customModule="HiddenNavBarWithInteractivePopGesture" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Le3-4Y-x2X">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXC-gg-Qo7">
+                                <rect key="frame" x="20" y="68.5" width="40" height="39"/>
+                                <state key="normal" image="xmark.circle" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                    </preferredSymbolConfiguration>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="pDX-hS-70R" eventType="touchUpInside" id="N9Q-Wo-BvF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUT-SJ-DPw">
+                                <rect key="frame" x="355" y="69" width="39" height="38"/>
+                                <state key="normal" image="circle.lefthalf.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                    </preferredSymbolConfiguration>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGU-Ww-kPE">
+                                <rect key="frame" x="20" y="414" width="374" height="122"/>
+                                <string key="text">This view controller effectively hides the navigation controller's navigation bar using a transparent appearance.
+
+The buttons you can see are large UIButtons that are part of this view controller's view.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="GXC-gg-Qo7" firstAttribute="centerY" secondItem="vG1-WJ-uBa" secondAttribute="top" id="N3l-Hg-7sO"/>
+                            <constraint firstItem="GXC-gg-Qo7" firstAttribute="leading" secondItem="Le3-4Y-x2X" secondAttribute="leadingMargin" id="Xa0-WG-4V5"/>
+                            <constraint firstItem="pGU-Ww-kPE" firstAttribute="leading" secondItem="Le3-4Y-x2X" secondAttribute="leadingMargin" id="YYI-jK-lSu"/>
+                            <constraint firstItem="pGU-Ww-kPE" firstAttribute="centerY" secondItem="vG1-WJ-uBa" secondAttribute="centerY" id="blG-Kb-ni6"/>
+                            <constraint firstItem="WUT-SJ-DPw" firstAttribute="centerY" secondItem="vG1-WJ-uBa" secondAttribute="top" id="fer-m5-L2d"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WUT-SJ-DPw" secondAttribute="trailing" id="sfE-Vx-PpN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pGU-Ww-kPE" secondAttribute="trailing" id="u5o-Rf-xyM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vG1-WJ-uBa"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="PHg-49-l6v"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tha-RD-F3l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2032" y="584"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="circle.lefthalf.fill" catalog="system" width="128" height="121"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="xmark.circle" catalog="system" width="128" height="121"/>
+    </resources>
 </document>
